@@ -57,15 +57,28 @@ pkg_check_modules(WEBP libwebp)
 pkg_check_modules(JP2K libopenjp2)
 endif()
 
+if(TIFF_FOUND)
+include_directories(${TIFF_INCLUDE_DIRS})
+endif()
+if(PNG_FOUND)
+include_directories(${PNG_INCLUDE_DIRS})
+endif()
+if(JPEG_FOUND)
+include_directories(${JPEG_INCLUDE_DIR})
+endif()
+if(ZLIB_FOUND)
+include_directories(${ZLIB_INCLUDE_DIRS})
+endif()
+
 ###############################################################################
 #
 # compiler and linker
 #
 ###############################################################################
 
-set(LIBRARY_TYPE SHARED)
+set(LIBRARY_TYPE SHARED) #Change value to build static library, STATIC
 if (STATIC)
-    set(LIBRARY_TYPE)
+    set(LIBRARY_TYPE STATIC)
 endif()
 
 if (WIN32)
