@@ -75,10 +75,14 @@ endif()
 # compiler and linker
 #
 ###############################################################################
-
-set(LIBRARY_TYPE SHARED) #Change value to build static library, STATIC
-if (STATIC)
-    set(LIBRARY_TYPE STATIC)
+option(BUILD_SHARED "Build Shared" ON)
+if(BUILD_SHARED)
+	set(LIBRARY_TYPE SHARED)
+else()
+	set(STATIC 1)
+	if (STATIC)
+		set(LIBRARY_TYPE STATIC)
+	endif()
 endif()
 
 if (WIN32)
