@@ -1,0 +1,5 @@
+/build*
+/release*
+*.sdf
+*.opensdf
+*.v12.suo
