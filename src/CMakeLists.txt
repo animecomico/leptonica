@@ -83,6 +83,14 @@ if (WIN32)
 		CONFIGURATIONS
 			Release
 	)
+	install(
+		FILES
+			${CMAKE_BINARY_DIR}/LeptonicaConfig.cmake ${CMAKE_BINARY_DIR}/LeptonicaConfig-version.cmake
+		DESTINATION
+			./
+		CONFIGURATIONS
+			Release
+	)
 	if (NOT STATIC)
 		install(
 			FILES

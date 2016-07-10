@@ -1,0 +1,61 @@
+# ===================================================================================
+#  The Leptonica CMake configuration file
+#
+#             ** File generated automatically, do not modify **
+#
+#  Usage from an external project:
+#    In your CMakeLists.txt, add these lines:
+#
+#    find_package(Leptonica REQUIRED)
+#    include_directories(${Leptonica_INCLUDE_DIRS})
+#    target_link_libraries(MY_TARGET_NAME ${Leptonica_LIBRARIES})
+#
+#    This file will define the following variables:
+#      - Leptonica_LIBRARIES_DIRS        : Directory where is libraries of leptonica
+#      - Leptonica_LIBRARIES             : The list of all imported targets for Leptonica modules dynamic.
+#      - Leptonica_LIBRARIES_STATIC      : The list of all imported targets for Leptonica modules static.
+#      - Leptonica_INCLUDE_DIRS          : The Leptonica include directories.
+#      - Leptonica_INCLUDE_DIRS_BACK     : The Leptonica include directories back folder.
+#      - Leptonica_VERSION               : The version of this Leptonica build: "@VERSION_PLAIN@"
+#      - Leptonica_VERSION_MAJOR         : Major version part of Leptonica_VERSION: "@VERSION_MAJOR@"
+#      - Leptonica_VERSION_MINOR         : Minor version part of Leptonica_VERSION: "@VERSION_MINOR@"
+#
+#  **************WARNING***********************************************************************************************************
+#  When use Leptonica_LIBRARIES_STATIC, the depends (zlib, tiff, gif, png y jpeg) that was used to build Leptonica_LIBRARIES_STATIC
+#  should be include in your project, otherwise, you have problem with reference undefined of depends.
+#  ********************************************************************************************************************************
+# ===================================================================================
+
+get_filename_component(Leptonica_CONFIG_PATH "${CMAKE_CURRENT_LIST_FILE}" PATH)
+
+# ======================================================
+#  Version variables:
+# ======================================================
+
+SET(Leptonica_VERSION           @VERSION_PLAIN@)
+SET(Leptonica_VERSION_MAJOR     @VERSION_MAJOR@)
+SET(Leptonica_VERSION_MINOR     @VERSION_MINOR@)
+
+# ======================================================
+# Include directories to add to the user project:
+# ======================================================
+
+# Provide the include directories to the caller
+set(Leptonica_INCLUDE_DIRS "${LEPTONICA_CONFIG_PATH}/include/leptonica")
+set(Leptonica_INCLUDE_DIRS_BACK "${LEPTONICA_CONFIG_PATH}/include/")
+option(Leptonica_include1 "../include/leptonica" OFF)
+option(Leptonica_include2 "../include" OFF)
+if(Leptonica_include1)
+	include_directories(${Leptonica_INCLUDE_DIRS})
+endif()
+if(Leptonica_include2)
+	include_directories(${Leptonica_INCLUDE_DIRS_BACK})
+endif()
+
+# ====================================================================
+# Link libraries:
+# ====================================================================
+set(Leptonica_LIBRARIES_DIRS "${LEPTONICA_CONFIG_PATH}/lib/")
+link_directories(${Leptonica_LIBRARIES_DIRS})
+set(Leptonica_LIBRARIES debug liblept@VERSION_MAJOR@@VERSION_MINOR@d optimized liblept@VERSION_MAJOR@@VERSION_MINOR@)
+set(Leptonica_LIBRARIES_STATIC debug liblept-static-mtdll-@VERSION_MAJOR@@VERSION_MINOR@d optimized liblept-static-mtdll-@VERSION_MAJOR@@VERSION_MINOR@)

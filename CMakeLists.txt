@@ -110,8 +110,11 @@ set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/src)
 configure_file(
     ${CMAKE_SOURCE_DIR}/cmake/templates/LeptonicaConfig-version.cmake.in
     ${CMAKE_BINARY_DIR}/LeptonicaConfig-version.cmake @ONLY)
+#configure_file(
+#    ${CMAKE_SOURCE_DIR}/cmake/templates/LeptonicaConfig.cmake.in
+#    ${CMAKE_BINARY_DIR}/LeptonicaConfig.cmake @ONLY)
 configure_file(
-    ${CMAKE_SOURCE_DIR}/cmake/templates/LeptonicaConfig.cmake.in
+    ${CMAKE_SOURCE_DIR}/cmake/templates/LeptonicaConfigInstall.cmake.in
     ${CMAKE_BINARY_DIR}/LeptonicaConfig.cmake @ONLY)
 
 ###############################################################################
