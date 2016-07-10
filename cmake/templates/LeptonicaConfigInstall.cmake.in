@@ -43,7 +43,7 @@ SET(Leptonica_VERSION_MINOR     @VERSION_MINOR@)
 # Provide the include directories to the caller
 set(Leptonica_INCLUDE_DIRS "${LEPTONICA_CONFIG_PATH}/include/leptonica")
 set(Leptonica_INCLUDE_DIRS_BACK "${LEPTONICA_CONFIG_PATH}/include/")
-option(Leptonica_include1 "../include/leptonica" OFF)
+option(Leptonica_include1 "../include/leptonica" ON)
 option(Leptonica_include2 "../include" OFF)
 if(Leptonica_include1)
 	include_directories(${Leptonica_INCLUDE_DIRS})
